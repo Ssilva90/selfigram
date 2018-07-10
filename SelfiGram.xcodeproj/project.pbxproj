@@ -14,6 +14,7 @@
 		E02A425520EDB59B00219900 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E02A425320EDB59B00219900 /* LaunchScreen.storyboard */; };
 		E02A426020EDB59B00219900 /* SelfiGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A425F20EDB59B00219900 /* SelfiGramTests.swift */; };
 		E02A426B20EDB59B00219900 /* SelfiGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A426A20EDB59B00219900 /* SelfiGramUITests.swift */; };
+		E02A427B20F4577A00219900 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A427A20F4577A00219900 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E02A426620EDB59B00219900 /* SelfiGramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfiGramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02A426A20EDB59B00219900 /* SelfiGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiGramUITests.swift; sourceTree = "<group>"; };
 		E02A426C20EDB59C00219900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E02A427A20F4577A00219900 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				E02A424A20EDB59B00219900 /* AppDelegate.swift */,
 				E02A424C20EDB59B00219900 /* ViewController.swift */,
 				E02A424E20EDB59B00219900 /* Main.storyboard */,
+				E02A427A20F4577A00219900 /* ProfileViewController.swift */,
 				E02A425120EDB59B00219900 /* Assets.xcassets */,
 				E02A425320EDB59B00219900 /* LaunchScreen.storyboard */,
 				E02A425620EDB59B00219900 /* Info.plist */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E02A424D20EDB59B00219900 /* ViewController.swift in Sources */,
+				E02A427B20F4577A00219900 /* ProfileViewController.swift in Sources */,
 				E02A424B20EDB59B00219900 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
