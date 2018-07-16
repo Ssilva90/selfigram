@@ -15,6 +15,8 @@
 		E02A426020EDB59B00219900 /* SelfiGramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A425F20EDB59B00219900 /* SelfiGramTests.swift */; };
 		E02A426B20EDB59B00219900 /* SelfiGramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A426A20EDB59B00219900 /* SelfiGramUITests.swift */; };
 		E02A427B20F4577A00219900 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A427A20F4577A00219900 /* ProfileViewController.swift */; };
+		E02A427D20FC506200219900 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A427C20FC506200219900 /* User.swift */; };
+		E02A427F20FC532300219900 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A427E20FC532300219900 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		E02A426A20EDB59B00219900 /* SelfiGramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfiGramUITests.swift; sourceTree = "<group>"; };
 		E02A426C20EDB59C00219900 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E02A427A20F4577A00219900 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E02A427C20FC506200219900 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E02A427E20FC532300219900 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				E02A425120EDB59B00219900 /* Assets.xcassets */,
 				E02A425320EDB59B00219900 /* LaunchScreen.storyboard */,
 				E02A425620EDB59B00219900 /* Info.plist */,
+				E02A427C20FC506200219900 /* User.swift */,
+				E02A427E20FC532300219900 /* Post.swift */,
 			);
 			path = SelfiGram;
 			sourceTree = "<group>";
@@ -259,9 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E02A427D20FC506200219900 /* User.swift in Sources */,
 				E02A424D20EDB59B00219900 /* ViewController.swift in Sources */,
 				E02A427B20F4577A00219900 /* ProfileViewController.swift in Sources */,
 				E02A424B20EDB59B00219900 /* AppDelegate.swift in Sources */,
+				E02A427F20FC532300219900 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
