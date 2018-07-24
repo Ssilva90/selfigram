@@ -25,14 +25,62 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let me = User(aUsername: "danny", aProfileImage: UIImage(named: "Grumpy-Cat")!)
-        let post0 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 0")
-        let post1 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 1")
-        let post2 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 2")
-        let post3 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 3")
-        let post4 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 4")
+        let url = URL(string: "https://www.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=20e20bd47fdd34a090a0106859453026&tags=dog")!
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: {(data, response, error) -> Void in
+            //print ("inside dataTaskWithURL with data = \(data!)")
+            // convert Data to JSON
+            if let jsonUnformatted = try? JSONSerialization.jsonObject(with: data!, options: []) {
+                let json = jsonUnformatted as? [String : AnyObject]
+                let photosDictionary = json?["photos"] as? [String : AnyObject]
+                if let photosArray = photosDictionary?["photo"] as? [[String : AnyObject]] {
+                    
+                    for photo in photosArray {
+                        
+                        if let farmID = photo["farm"] as? Int,
+                            let serverID = photo["server"] as? String,
+                            let photoID = photo["id"] as? String,
+                            let secret = photo["secret"] as? String {
+                            
+                            let photoURLString = "https://farm\(farmID).staticflickr.com/\(serverID)/\(photoID)_\(secret).jpg"
+                            print(photoURLString)
+                            if let photoURL = URL(string: photoURLString) {
+                                
+                                let me = User(aUsername: "sam", aProfileImage: UIImage(named: "Grumpy-Cat")!)
+                                let post = Post(imageURL: photoURL, aUser: me, aComment: "A Flickr Selfie")
+                                self.posts.append(post)
+                            }
+                        }
+                        
+                    }
+                    // We use OperationQueue.main because we need update all UI elements on the main thread.
+                    // This is a rule and you will see this again whenever you are updating UI.
+                    OperationQueue.main.addOperation {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                
 
-        posts = [post0, post1, post2, post3, post4]
+            }else{
+                print("error with response data")
+            }
+
+           
+        })
+        // this is called to start (or restart, if needed) our task
+        task.resume()
+        
+        print ("outside dataTaskWithURL")
+
+       // let me = User(aUsername: "danny", aProfileImage: UIImage(named: "Grumpy-Cat")!)
+//        let post0 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 0")
+//        let post1 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 1")
+//        let post2 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 2")
+//        let post3 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 3")
+//        let post4 = Post(aImage: UIImage(named: "Grumpy-Cat")!, aUser: me, aComment: "Grumpy Cat 4")
+
+       // posts = [post0, post1, post2, post3, post4]
 
     }
 
@@ -77,26 +125,38 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return self.posts.count
     }
 
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCell
-
-       // let post = posts[indexPath.row]
+        
         let post = self.posts[indexPath.row]
-        cell.selfieImageView.image = post.image
+        
+        cell.selfieImageView.image = nil
+
+        let task = URLSession.shared.downloadTask(with: post.imageURL) { (url, response, error) -> Void in
+            
+            if let imageURL = url, let imageData = try? Data(contentsOf: imageURL) {
+                OperationQueue.main.addOperation {
+                    
+                    cell.selfieImageView.image = UIImage(data: imageData)
+                    
+                }
+                
+            }
+            
+        }
+        
+        task.resume()
+        
         cell.usernameLabel.text = post.user.username
         cell.commentLabel.text = post.comment
-        //cell.imageView?.image = post.image
-        //cell.textLabel?.text = post.comment
-        // Configure the cell...
-
+        
         return cell
     }
+
  
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
@@ -107,9 +167,9 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
             
             //2. To our imageView, we set the image property to be the image the user has chosen
             //profileImageView.image = image
-            let me = User(aUsername: "sam", aProfileImage: UIImage(named: "Grumpy-Cat")!)
-            let post = Post(aImage: image, aUser: me, aComment: "My Selfie")
-            posts.insert(post, at: 0)
+            //let me = User(aUsername: "sam", aProfileImage: UIImage(named: "Grumpy-Cat")!)
+            //let post = Post(imageURL: image, aUser: me, aComment: "My Selfie")
+            //posts.insert(post, at: 0)
 
         }
         
