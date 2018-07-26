@@ -1,0 +1,6 @@
+framework module Pods_SelfiGram {
+  umbrella header "Pods-SelfiGram-umbrella.h"
+
+  export *
+  module * { export * }
+}
