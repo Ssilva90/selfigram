@@ -104,6 +104,18 @@
                                                 <constraint firstAttribute="height" constant="250" id="NpQ-8l-FGf"/>
                                             </constraints>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKz-xA-na1">
+                                            <rect key="frame" x="344" y="258" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="230-R8-XiB"/>
+                                                <constraint firstAttribute="width" constant="23" id="Tto-fB-Nwg"/>
+                                            </constraints>
+                                            <state key="normal" image="hearts-off"/>
+                                            <state key="selected" image="hearts-on"/>
+                                            <connections>
+                                                <action selector="likeButtonClickedWithSender:" destination="p9s-3p-Chs" eventType="touchUpInside" id="Kuq-ou-mgp"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="wyV-Vi-5Jm" firstAttribute="top" secondItem="HKm-Jv-tI6" secondAttribute="top" id="AeX-Yh-8cl"/>
@@ -112,10 +124,13 @@
                                         <constraint firstItem="TrW-6f-ANi" firstAttribute="top" secondItem="8rM-6p-Dth" secondAttribute="bottom" constant="8" id="Nkb-g0-4SP"/>
                                         <constraint firstItem="8rM-6p-Dth" firstAttribute="leading" secondItem="HKm-Jv-tI6" secondAttribute="leadingMargin" id="UY7-YK-Noz"/>
                                         <constraint firstItem="TrW-6f-ANi" firstAttribute="leading" secondItem="HKm-Jv-tI6" secondAttribute="leadingMargin" id="bmy-8G-hPQ"/>
+                                        <constraint firstItem="rKz-xA-na1" firstAttribute="top" secondItem="wyV-Vi-5Jm" secondAttribute="bottom" constant="8" id="ccY-2x-hTC"/>
+                                        <constraint firstAttribute="trailing" secondItem="rKz-xA-na1" secondAttribute="trailing" constant="8" id="jJy-dw-M3e"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="TrW-6f-ANi" id="JTm-qD-rlv"/>
+                                    <outlet property="like" destination="rKz-xA-na1" id="bzK-0t-BuZ"/>
                                     <outlet property="selfieImageView" destination="wyV-Vi-5Jm" id="4p0-T9-RSe"/>
                                     <outlet property="usernameLabel" destination="8rM-6p-Dth" id="Ngw-Ph-VLZ"/>
                                 </connections>
@@ -250,6 +265,8 @@
         <image name="Activities" width="25" height="25"/>
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
+        <image name="hearts-off" width="42" height="37"/>
+        <image name="hearts-on" width="42" height="37"/>
         <image name="placeholder" width="256" height="256"/>
     </resources>
 </document>

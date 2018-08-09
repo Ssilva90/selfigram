@@ -22,6 +22,7 @@
 		E02A427F20FC532300219900 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A427E20FC532300219900 /* Post.swift */; };
 		E02A428120FD865900219900 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A428020FD865900219900 /* FeedViewController.swift */; };
 		E02A42832100288500219900 /* SelfieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02A42822100288500219900 /* SelfieCell.swift */; };
+		E08C300721129C4400D72244 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08C300621129C4400D72244 /* Activity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		E02A427E20FC532300219900 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E02A428020FD865900219900 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		E02A42822100288500219900 /* SelfieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieCell.swift; sourceTree = "<group>"; };
+		E08C300621129C4400D72244 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FA1004F86EC227646A897E71 /* Pods-SelfiGramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfiGramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelfiGramTests/Pods-SelfiGramTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				E02A424A20EDB59B00219900 /* AppDelegate.swift */,
 				E02A424C20EDB59B00219900 /* ViewController.swift */,
 				E02A424E20EDB59B00219900 /* Main.storyboard */,
+				E08C300621129C4400D72244 /* Activity.swift */,
 				E02A427A20F4577A00219900 /* ProfileViewController.swift */,
 				E02A425120EDB59B00219900 /* Assets.xcassets */,
 				E02A425320EDB59B00219900 /* LaunchScreen.storyboard */,
@@ -398,6 +401,7 @@
 				E02A427B20F4577A00219900 /* ProfileViewController.swift in Sources */,
 				E02A424B20EDB59B00219900 /* AppDelegate.swift in Sources */,
 				E02A428120FD865900219900 /* FeedViewController.swift in Sources */,
+				E08C300721129C4400D72244 /* Activity.swift in Sources */,
 				E02A427F20FC532300219900 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

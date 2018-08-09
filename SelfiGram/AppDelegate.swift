@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             clientConfiguration.applicationId = "123"
             clientConfiguration.server = "https://galia-app.herokuapp.com/parse"
         }
+        Post.registerSubclass()
+        Activity.registerSubclass()
+
         Parse.initialize(with: configuration)
         let user = PFUser()
         let username = "galia"
